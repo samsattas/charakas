@@ -1,20 +1,42 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Charakas
 
-# Run and deploy your AI Studio app
+App de juegos de fiesta para grupos, con temática colombiana. Sin instalación, corre directo en el navegador.
 
-This contains everything you need to run your app locally.
+## Modos de juego
 
-View your app in AI Studio: https://ai.studio/apps/ae5c8573-f7a9-4fe0-837b-0460e2eb0c5b
+### Charadas
+Juego individual por turnos. Un jugador describe una palabra sin decirla y los demás intentan adivinarla. Al final de cada turno se registran los aciertos y errores, y al terminar la ronda se muestra el podio con los puntajes.
 
-## Run Locally
+- Configurable: número de rondas, tiempo por turno y dificultad de palabras
+- Palabras en categorías: animales, comida colombiana, lugares de Colombia y más
+- Soporte para importar palabras personalizadas desde CSV
 
-**Prerequisites:**  Node.js
+### Mímicas
+Juego por equipos. Un integrante actúa (sin hablar) una palabra o frase mientras su equipo adivina contra el reloj. El jurado (el equipo contrario) valida los aciertos.
 
+- Dos tipos de contenido: palabras sueltas o frases
+- Configurable: tiempo por turno y número de rondas
+- Podio final por equipos
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Stack
+
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS v4
+- shadcn/ui + Radix UI
+- Framer Motion
+
+## Desarrollo local
+
+```bash
+npm install
+npm run dev
+```
+
+La app corre en `http://localhost:3000`.
+
+## Deploy
+
+El sitio se despliega automáticamente en GitHub Pages al hacer push a `main`.
+
+URL: https://samsattas.github.io/charakas/
