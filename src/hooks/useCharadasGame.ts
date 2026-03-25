@@ -7,6 +7,7 @@ export const useCharadasGame = () => {
   const [screen, setScreen] = useState<CharadasScreen>('PLAYER_SETUP');
   const [players, setPlayers] = useState<Player[]>([]);
   const [words, setWords] = useState<Word[]>(CHARADAS_WORDS);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [turnTime, setTurnTime] = useState(60);
   const [numRounds, setNumRounds] = useState(3);
   const [currentRound, setCurrentRound] = useState(1);
@@ -27,7 +28,10 @@ export const useCharadasGame = () => {
   };
 
   const startTurn = () => {
-    setShuffledWords(shuffleArray(words));
+    const pool = selectedCategory
+      ? words.filter((w) => w.categoria === selectedCategory)
+      : words;
+    setShuffledWords(shuffleArray(pool));
     setTurnPoints(0);
     setTurnGuessedWords([]);
     setScreen('ACTIVE_TURN');
@@ -64,6 +68,7 @@ export const useCharadasGame = () => {
     setScreen('PLAYER_SETUP');
     setPlayers([]);
     setWords(CHARADAS_WORDS);
+    setSelectedCategory(null);
     setTurnTime(60);
     setNumRounds(3);
     setCurrentRound(1);
@@ -74,6 +79,7 @@ export const useCharadasGame = () => {
     screen, setScreen,
     players,
     words, setWords,
+    selectedCategory, setSelectedCategory,
     turnTime, setTurnTime,
     numRounds, setNumRounds,
     currentRound,

@@ -1,6 +1,7 @@
 import { useCharadasGame } from '../../hooks/useCharadasGame';
 import { Podium } from '../../components/Podium';
 import { PlayerSetup } from './PlayerSetup';
+import { CategorySelect } from './CategorySelect';
 import { GameConfig } from './GameConfig';
 import { ReadyScreen } from './ReadyScreen';
 import { ActiveTurn } from './ActiveTurn';
@@ -27,8 +28,18 @@ export function CharadasPage({ onExit }: CharadasPageProps) {
           onAddPlayer={game.addPlayer}
           onRemovePlayer={game.removePlayer}
           onSetWords={game.setWords}
-          onNext={() => game.setScreen('GAME_CONFIG')}
+          onNext={() => game.setScreen('CATEGORY_SELECT')}
           onBack={handleExit}
+        />
+      );
+
+    case 'CATEGORY_SELECT':
+      return (
+        <CategorySelect
+          selectedCategory={game.selectedCategory}
+          onSelectCategory={game.setSelectedCategory}
+          onNext={() => game.setScreen('GAME_CONFIG')}
+          onBack={() => game.setScreen('PLAYER_SETUP')}
         />
       );
 
@@ -40,7 +51,7 @@ export function CharadasPage({ onExit }: CharadasPageProps) {
           onSetTurnTime={game.setTurnTime}
           onSetNumRounds={game.setNumRounds}
           onNext={() => game.setScreen('READY')}
-          onBack={() => game.setScreen('PLAYER_SETUP')}
+          onBack={() => game.setScreen('CATEGORY_SELECT')}
         />
       );
 

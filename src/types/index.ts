@@ -2,6 +2,7 @@ export type GameMode = 'HOME' | 'CHARADAS' | 'MIMICAS';
 
 export type CharadasScreen =
   | 'PLAYER_SETUP'
+  | 'CATEGORY_SELECT'
   | 'GAME_CONFIG'
   | 'READY'
   | 'ACTIVE_TURN'
