@@ -550,8 +550,9 @@ function ActiveTurnScreen({ playerName, round, totalRounds, time, words, onBack,
   const [currentIdx, setCurrentIdx] = useState(0);
   const [guessed, setGuessed] = useState<string[]>([]);
   const [points, setPoints] = useState(0);
-  const [lastTap, setLastTap] = useState(0);
   const timerRef = useRef<any>(null);
+  const lastTapRef = useRef(0);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     timerRef.current = setInterval(() => {
@@ -583,13 +584,33 @@ function ActiveTurnScreen({ playerName, round, totalRounds, time, words, onBack,
     setCurrentIdx(prev => prev + 1);
   };
 
-  const handleTouch = (e: React.TouchEvent | React.MouseEvent) => {
-    const now = Date.now();
-    if (now - lastTap < 300) {
-      handleGuess();
-      setLastTap(0);
-    } else {
-      setLastTap(now);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStartRef.current = { x: t.clientX, y: t.clientY };
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartRef.current) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStartRef.current.x;
+    const dy = t.clientY - touchStartRef.current.y;
+    touchStartRef.current = null;
+
+    // Swipe horizontal (skip)
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      handleSkip();
+      return;
+    }
+
+    // Tap: double-tap = guess
+    if (Math.abs(dx) < 15 && Math.abs(dy) < 15) {
+      const now = Date.now();
+      if (now - lastTapRef.current < 350) {
+        handleGuess();
+        lastTapRef.current = 0;
+      } else {
+        lastTapRef.current = now;
+      }
     }
   };
 
@@ -619,10 +640,11 @@ function ActiveTurnScreen({ playerName, round, totalRounds, time, words, onBack,
         </div>
       </div>
 
-      <div 
+      <div
         className="flex-1 flex flex-col items-center justify-center text-center space-y-8"
-        onTouchStart={handleTouch}
-        onClick={handleTouch}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{ touchAction: 'none' }}
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -633,7 +655,11 @@ function ActiveTurnScreen({ playerName, round, totalRounds, time, words, onBack,
             className="space-y-4"
           >
             <Badge className="bg-indigo-500 text-white px-8 py-3 text-xl shadow-lg shadow-indigo-500/20 font-black uppercase tracking-widest">{words[currentIdx].categoria}</Badge>
-            <h3 className="text-7xl font-black tracking-tighter uppercase break-words px-4 leading-tight">
+            <h3 className={`font-black tracking-tighter uppercase wrap-break-word px-4 leading-tight ${
+              words[currentIdx].palabra.length > 16 ? 'text-4xl' :
+              words[currentIdx].palabra.length > 10 ? 'text-5xl' :
+              'text-7xl'
+            }`}>
               {words[currentIdx].palabra}
             </h3>
             <Badge variant="outline" className="text-muted-foreground px-4 py-1.5 border-2 font-medium">{words[currentIdx].dificultad}</Badge>
