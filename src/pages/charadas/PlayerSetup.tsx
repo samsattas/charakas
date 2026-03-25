@@ -109,7 +109,7 @@ export function PlayerSetup({
       <Button
         disabled={players.length < 2}
         onClick={onNext}
-        className="w-full py-3 text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
+        className="w-full py-5 text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
       >
         Siguiente
       </Button>
