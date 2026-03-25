@@ -74,7 +74,7 @@ export function ActiveTurn({ playerName, round, totalRounds, time, words, onBack
       <div className="flex justify-between items-start">
         <div className="flex items-start gap-2">
           <Button variant="ghost" size="icon" className="text-muted-foreground" onClick={onBack}>
-            <XCircle className="w-6 h-6" />
+            <XCircle className="w-7 h-7" />
           </Button>
           <div className="space-y-1">
             <p className="text-xl font-bold text-primary">{playerName}</p>

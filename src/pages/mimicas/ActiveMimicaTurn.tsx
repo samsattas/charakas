@@ -40,7 +40,7 @@ export function ActiveMimicaTurn({ teamName, round, words, onBack, onEnd }: Acti
       <div className="flex justify-between items-start bg-card/30 p-4 rounded-xl backdrop-blur">
         <div className="flex items-start gap-2">
           <Button variant="ghost" size="icon" className="text-muted-foreground" onClick={onBack}>
-            <XCircle className="w-6 h-6" />
+            <XCircle className="w-7 h-7" />
           </Button>
           <div className="space-y-1">
             <p className="text-xl font-bold text-amber-500">{teamName}</p>

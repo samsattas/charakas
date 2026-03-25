@@ -15,7 +15,7 @@ export function TurnSummary({ playerName, nextPlayerName, points, guessedWords, 
     <div className="max-w-2xl mx-auto p-6 space-y-8 text-center">
       <div className="flex justify-start">
         <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={onBack}>
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-7 h-7" />
         </Button>
       </div>
       <h2 className="text-4xl font-bold text-primary">Resumen del Turno</h2>

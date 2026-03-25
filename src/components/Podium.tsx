@@ -18,7 +18,7 @@ export function Podium({ players, onRestart }: PodiumProps) {
     <div className="max-w-4xl mx-auto p-6 space-y-12">
       <div className="flex justify-start">
         <Button variant="ghost" className="text-muted-foreground hover:text-primary gap-1" onClick={onRestart}>
-          <ChevronLeft className="w-5 h-5" /> Inicio
+          <ChevronLeft className="w-7 h-7" /> Inicio
         </Button>
       </div>
       <h2 className="text-5xl font-black text-center text-primary tracking-tighter">¡FIN DEL JUEGO!</h2>

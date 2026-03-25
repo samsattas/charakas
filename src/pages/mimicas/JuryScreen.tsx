@@ -13,7 +13,7 @@ export function JuryScreen({ teamName, onStart, onBack }: JuryScreenProps) {
     <div className="flex flex-col min-h-screen">
       <div className="p-6">
         <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={onBack}>
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-7 h-7" />
         </Button>
       </div>
       <div className="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-8">

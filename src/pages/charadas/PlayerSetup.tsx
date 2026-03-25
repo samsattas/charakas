@@ -52,7 +52,7 @@ export function PlayerSetup({
     <div className="max-w-2xl mx-auto p-6 space-y-8">
       <div className="flex items-center justify-between">
         <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={onBack}>
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-7 h-7" />
         </Button>
         <h2 className="text-2xl font-bold text-primary">Jugadores</h2>
         <DropdownMenu>

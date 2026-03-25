@@ -38,7 +38,7 @@ export function TeamSetup({ numRounds, onSetNumRounds, onNext, onBack }: TeamSet
     <div className="max-w-2xl mx-auto p-6 space-y-10">
       <div className="flex items-center justify-between">
         <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={onBack}>
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-7 h-7" />
         </Button>
         <h2 className="text-3xl font-black text-primary tracking-tighter uppercase">Equipos</h2>
         <div className="w-10" />

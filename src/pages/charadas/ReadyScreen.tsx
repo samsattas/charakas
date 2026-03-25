@@ -15,7 +15,7 @@ export function ReadyScreen({ playerName, round, totalRounds, onStart, onBack }:
     <div className="flex flex-col min-h-screen">
       <div className="p-6">
         <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={onBack}>
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-7 h-7" />
         </Button>
       </div>
       <div
