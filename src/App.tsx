@@ -396,8 +396,8 @@ function CharadasGame({
       return (
         <div className="max-w-xl mx-auto p-6 space-y-10">
           <div className="flex items-center justify-between">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('PLAYER_SETUP')}>
-              <ChevronLeft className="w-5 h-5 mr-1" /> Volver
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('PLAYER_SETUP')}>
+              <ChevronLeft className="w-5 h-5" />
             </Button>
             <h2 className="text-3xl font-black text-primary tracking-tighter uppercase">Configuración</h2>
             <div className="w-20" />
@@ -464,8 +464,8 @@ function CharadasGame({
       return (
         <div className="flex flex-col min-h-screen">
           <div className="p-6">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('GAME_CONFIG')}>
-              <ChevronLeft className="w-5 h-5 mr-1" /> Volver
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('GAME_CONFIG')}>
+              <ChevronLeft className="w-5 h-5" />
             </Button>
           </div>
           <div 
@@ -511,8 +511,8 @@ function CharadasGame({
       return (
         <div className="max-w-2xl mx-auto p-6 space-y-8 text-center">
           <div className="flex justify-start">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('READY')}>
-              <ChevronLeft className="w-5 h-5 mr-1" /> Volver
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('READY')}>
+              <ChevronLeft className="w-5 h-5" />
             </Button>
           </div>
           <h2 className="text-4xl font-bold text-primary">Resumen del Turno</h2>
@@ -738,8 +738,8 @@ function MimicasGame({
       return (
         <div className="max-w-2xl mx-auto p-6 space-y-10">
           <div className="flex items-center justify-between">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary" onClick={onExit}>
-              <ChevronLeft className="w-5 h-5 mr-1" /> Volver
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={onExit}>
+              <ChevronLeft className="w-5 h-5" />
             </Button>
             <h2 className="text-3xl font-black text-primary tracking-tighter uppercase">Equipos</h2>
             <div className="w-20" />
@@ -830,8 +830,8 @@ function MimicasGame({
       return (
         <div className="max-w-4xl mx-auto p-6 space-y-12">
           <div className="flex justify-start">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('TEAM_SETUP')}>
-              <ChevronLeft className="w-5 h-5 mr-1" /> Volver
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('TEAM_SETUP')}>
+              <ChevronLeft className="w-5 h-5" />
             </Button>
           </div>
           <h2 className="text-4xl font-bold text-primary text-center">¿Qué quieren actuar?</h2>
@@ -862,8 +862,8 @@ function MimicasGame({
       return (
         <div className="flex flex-col min-h-screen">
           <div className="p-6">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('CONTENT_TYPE')}>
-              <ChevronLeft className="w-5 h-5 mr-1" /> Volver
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('CONTENT_TYPE')}>
+              <ChevronLeft className="w-5 h-5" />
             </Button>
           </div>
           <div className="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-8">
@@ -900,8 +900,8 @@ function MimicasGame({
       return (
         <div className="max-w-2xl mx-auto p-6 space-y-8 text-center">
           <div className="flex justify-start">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('JURY')}>
-              <ChevronLeft className="w-5 h-5 mr-1" /> Volver
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={() => setScreen('JURY')}>
+              <ChevronLeft className="w-5 h-5" />
             </Button>
           </div>
           <h2 className="text-4xl font-bold text-primary">Resumen del Turno</h2>
@@ -1030,7 +1030,7 @@ function Podium({ players, onRestart, isTeams }: any) {
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-12">
       <div className="flex justify-start">
-        <Button variant="ghost" className="text-muted-foreground hover:text-primary" onClick={onRestart}>
+        <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={onRestart}>
           <ChevronLeft className="w-5 h-5 mr-1" /> Inicio
         </Button>
       </div>
