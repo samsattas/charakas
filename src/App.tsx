@@ -356,39 +356,38 @@ function CharadasGame({
             <input type="file" accept=".csv" onChange={handleFileUpload} className="hidden" id="csv-upload" />
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex gap-2">
-              <Input 
-                placeholder="Nombre del jugador" 
-                value={newPlayerName} 
+              <Input
+                placeholder="Nombre del jugador"
+                value={newPlayerName}
                 onChange={(e) => setNewPlayerName(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && addPlayer()}
-                className="bg-card/50"
+                className="bg-card/50 h-10"
               />
-              <Button onClick={addPlayer} className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <Plus className="w-4 h-4 mr-2" /> Agregar
+              <Button size="sm" onClick={addPlayer} className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 shrink-0">
+                <Plus className="w-4 h-4 mr-1.5" /> Agregar
               </Button>
             </div>
 
-            <div className="space-y-2 max-h-60 overflow-y-auto pr-2">
+            <div className="space-y-1.5 max-h-60 overflow-y-auto pr-1">
               {players.map((p: any) => (
-                <div key={p.id} className="flex items-center justify-between p-3 bg-card rounded-lg border border-muted">
-                  <span className="font-medium">{p.name}</span>
-                  <Button variant="ghost" size="icon" onClick={() => removePlayer(p.id)} className="text-secondary hover:text-secondary hover:bg-secondary/10">
-                    <Trash2 className="w-4 h-4" />
+                <div key={p.id} className="flex items-center justify-between px-3 py-2 bg-card rounded-lg border border-muted">
+                  <span className="text-sm font-medium">{p.name}</span>
+                  <Button variant="ghost" size="icon" onClick={() => removePlayer(p.id)} className="h-7 w-7 text-muted-foreground hover:text-destructive hover:bg-destructive/10">
+                    <Trash2 className="w-3.5 h-3.5" />
                   </Button>
                 </div>
               ))}
             </div>
           </div>
 
-
-          <Button 
-            disabled={players.length < 2} 
-            onClick={() => setScreen('GAME_CONFIG')} 
-            className="w-full py-8 text-xl font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl shadow-primary/20"
+          <Button
+            disabled={players.length < 2}
+            onClick={() => setScreen('GAME_CONFIG')}
+            className="w-full py-4 text-base font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
           >
-            Siguiente <ChevronRight className="ml-2" />
+            Siguiente <ChevronRight className="ml-2 w-4 h-4" />
           </Button>
         </div>
       );
