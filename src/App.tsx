@@ -336,8 +336,23 @@ function CharadasGame({
               <ChevronLeft className="w-5 h-5 mr-1" /> Volver
             </Button>
             <h2 className="text-2xl font-bold text-primary">Jugadores</h2>
-            <div className="w-20" /> {/* Spacer */}
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={() => setShowCsvOptions(v => !v)}>
+              <Settings className="w-5 h-5" />
+            </Button>
           </div>
+          {showCsvOptions && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="relative">
+                <input type="file" accept=".csv" onChange={handleFileUpload} className="hidden" id="csv-upload" />
+                <Label htmlFor="csv-upload" className="flex items-center justify-center w-full p-3 border border-dashed border-muted rounded-lg cursor-pointer hover:border-primary transition-colors text-sm">
+                  <Upload className="w-4 h-4 mr-2" /> Subir CSV
+                </Label>
+              </div>
+              <Button variant="outline" onClick={downloadBaseCSV} className="py-3 text-sm">
+                <Download className="w-4 h-4 mr-2" /> Descargar Base
+              </Button>
+            </div>
+          )}
           
           <div className="space-y-4">
             <div className="flex gap-2">
@@ -365,28 +380,6 @@ function CharadasGame({
             </div>
           </div>
 
-          <div>
-            <button
-              onClick={() => setShowCsvOptions(v => !v)}
-              className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <ChevronRight className={`w-4 h-4 transition-transform ${showCsvOptions ? 'rotate-90' : ''}`} />
-              Palabras personalizadas (CSV)
-            </button>
-            {showCsvOptions && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
-                <div className="relative">
-                  <input type="file" accept=".csv" onChange={handleFileUpload} className="hidden" id="csv-upload" />
-                  <Label htmlFor="csv-upload" className="flex items-center justify-center w-full p-3 border border-dashed border-muted rounded-lg cursor-pointer hover:border-primary transition-colors text-sm">
-                    <Upload className="w-4 h-4 mr-2" /> Subir CSV
-                  </Label>
-                </div>
-                <Button variant="outline" onClick={downloadBaseCSV} className="py-3 text-sm">
-                  <Download className="w-4 h-4 mr-2" /> Descargar Base
-                </Button>
-              </div>
-            )}
-          </div>
 
           <Button 
             disabled={players.length < 2} 
