@@ -31,6 +31,7 @@ import {
 import Papa from 'papaparse';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Slider } from '@/components/ui/slider';
@@ -257,7 +258,6 @@ function CharadasGame({
 }: any) {
   
   const [newPlayerName, setNewPlayerName] = useState('');
-  const [showCsvOptions, setShowCsvOptions] = useState(false);
 
   const addPlayer = () => {
     if (newPlayerName.trim()) {
@@ -336,23 +336,25 @@ function CharadasGame({
               <ChevronLeft className="w-5 h-5 mr-1" /> Volver
             </Button>
             <h2 className="text-2xl font-bold text-primary">Jugadores</h2>
-            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={() => setShowCsvOptions(v => !v)}>
-              <Settings className="w-5 h-5" />
-            </Button>
-          </div>
-          {showCsvOptions && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="relative">
-                <input type="file" accept=".csv" onChange={handleFileUpload} className="hidden" id="csv-upload" />
-                <Label htmlFor="csv-upload" className="flex items-center justify-center w-full p-3 border border-dashed border-muted rounded-lg cursor-pointer hover:border-primary transition-colors text-sm">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/>
+                  </svg>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onSelect={() => document.getElementById('csv-upload')?.click()}>
                   <Upload className="w-4 h-4 mr-2" /> Subir CSV
-                </Label>
-              </div>
-              <Button variant="outline" onClick={downloadBaseCSV} className="py-3 text-sm">
-                <Download className="w-4 h-4 mr-2" /> Descargar Base
-              </Button>
-            </div>
-          )}
+                </DropdownMenuItem>
+                <DropdownMenuItem onSelect={downloadBaseCSV}>
+                  <Download className="w-4 h-4 mr-2" /> Descargar Base
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <input type="file" accept=".csv" onChange={handleFileUpload} className="hidden" id="csv-upload" />
+          </div>
           
           <div className="space-y-4">
             <div className="flex gap-2">
