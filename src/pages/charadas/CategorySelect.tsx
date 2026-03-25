@@ -41,7 +41,7 @@ export function CategorySelect({ selectedCategory, onSelectCategory, onNext, onB
         }`}
       >
         <Shuffle className="w-6 h-6 shrink-0" />
-        Todo random
+        Aleatorio
       </button>
 
       <div className="grid grid-cols-2 gap-3">
