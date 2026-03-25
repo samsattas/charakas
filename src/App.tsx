@@ -655,11 +655,10 @@ function ActiveTurnScreen({ playerName, round, totalRounds, time, words, onBack,
             className="space-y-4"
           >
             <Badge className="bg-indigo-500 text-white px-8 py-3 text-xl shadow-lg shadow-indigo-500/20 font-black uppercase tracking-widest">{words[currentIdx].categoria}</Badge>
-            <h3 className={`font-black tracking-tighter uppercase wrap-break-word px-4 leading-tight ${
-              words[currentIdx].palabra.length > 16 ? 'text-4xl' :
-              words[currentIdx].palabra.length > 10 ? 'text-5xl' :
-              'text-7xl'
-            }`}>
+            <h3
+              className="font-black tracking-tighter uppercase px-4 leading-tight"
+              style={{ fontSize: `clamp(1.5rem, ${120 / Math.max(words[currentIdx].palabra.length, 1)}vw, 4.5rem)` }}
+            >
               {words[currentIdx].palabra}
             </h3>
             <Badge variant="outline" className="text-muted-foreground px-4 py-1.5 border-2 font-medium">{words[currentIdx].dificultad}</Badge>
