@@ -332,8 +332,8 @@ function CharadasGame({
       return (
         <div className="max-w-2xl mx-auto p-6 space-y-8">
           <div className="flex items-center justify-between">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary" onClick={onExit}>
-              <ChevronLeft className="w-5 h-5 mr-1" /> Volver
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={onExit}>
+              <ChevronLeft className="w-5 h-5" />
             </Button>
             <h2 className="text-2xl font-bold text-primary">Jugadores</h2>
             <DropdownMenu>
@@ -385,7 +385,7 @@ function CharadasGame({
           <Button
             disabled={players.length < 2}
             onClick={() => setScreen('GAME_CONFIG')}
-            className="w-full py-4 text-base font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
+            className="w-full py-2 text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
           >
             Siguiente <ChevronRight className="ml-2 w-4 h-4" />
           </Button>
