@@ -385,7 +385,7 @@ function CharadasGame({
           <Button
             disabled={players.length < 2}
             onClick={() => setScreen('GAME_CONFIG')}
-            className="w-full py-2 text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
+            className="w-full py-3 text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
           >
             Siguiente <ChevronRight className="ml-2 w-4 h-4" />
           </Button>
