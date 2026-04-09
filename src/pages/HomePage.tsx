@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Theater, MessageSquare } from 'lucide-react';
+import { Theater, MessageSquare, Link2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GameMode } from '../types';
 
@@ -18,7 +18,7 @@ export function HomePage({ onSelectMode }: HomePageProps) {
         <h1 className="text-6xl font-extrabold text-primary tracking-tighter">Charakas</h1>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -51,6 +51,23 @@ export function HomePage({ onSelectMode }: HomePageProps) {
             </CardHeader>
             <CardContent className="text-center text-muted-foreground">
               Adivina la palabra que tienes en la frente con las pistas de tus amigos.
+            </CardContent>
+          </Card>
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onSelectMode('ENCADENADOS')}
+        >
+          <Card className="cursor-pointer h-full border-4 border-emerald-500 hover:bg-emerald-500/10 transition-colors bg-card/50 backdrop-blur shadow-lg shadow-emerald-500/20">
+            <CardHeader className="text-center">
+              <div className="mx-auto bg-emerald-500/30 p-4 rounded-full w-fit mb-4">
+                <Link2 className="w-16 h-16 text-emerald-600" />
+              </div>
+              <CardTitle className="text-3xl font-bold text-emerald-600">Encadenados</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center text-muted-foreground">
+              Adivina las palabras secretas de los demás y encadénalos a tu grupo.
             </CardContent>
           </Card>
         </motion.div>

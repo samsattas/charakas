@@ -5,6 +5,7 @@ import { GameMode } from './types';
 import { HomePage } from './pages/HomePage';
 import { CharadasPage } from './pages/charadas/CharadasPage';
 import { MimicasPage } from './pages/mimicas/MimicasPage';
+import { EncadenadosPage } from './pages/encadenados/EncadenadosPage';
 
 export default function App() {
   const [gameMode, setGameMode] = useState<GameMode>('HOME');
@@ -25,6 +26,11 @@ export default function App() {
         {gameMode === 'MIMICAS' && (
           <motion.div key="mimicas" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <MimicasPage onExit={() => setGameMode('HOME')} />
+          </motion.div>
+        )}
+        {gameMode === 'ENCADENADOS' && (
+          <motion.div key="encadenados" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <EncadenadosPage onExit={() => setGameMode('HOME')} />
           </motion.div>
         )}
       </AnimatePresence>

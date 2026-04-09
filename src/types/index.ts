@@ -1,4 +1,4 @@
-export type GameMode = 'HOME' | 'CHARADAS' | 'MIMICAS';
+export type GameMode = 'HOME' | 'CHARADAS' | 'MIMICAS' | 'ENCADENADOS';
 
 export type CharadasScreen =
   | 'PLAYER_SETUP'
@@ -18,6 +18,27 @@ export type MimicasScreen =
   | 'FINAL_PODIUM';
 
 export type ContentType = 'PALABRAS' | 'FRASES';
+
+export type EncadenadosScreen = 'PLAYER_SETUP' | 'WORD_INPUT' | 'GUESSING' | 'GAME_OVER';
+
+export interface ColorPalette {
+  bg: string;
+  border: string;
+  text: string;
+  memberBg: string;
+}
+
+export interface EncadenadoPlayer {
+  id: string;
+  name: string;
+  word: string;
+  colorIndex: number;
+}
+
+export interface EncadenadoGroup {
+  leaderId: string;
+  memberIds: string[];
+}
 
 export interface Player {
   id: string;
